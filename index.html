@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Eval function</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@434&family=Poppins&display=swap');
+        *{
+            background-color: black;
+            font-family: 'Baloo Da 2', cursive;
+            font-family: 'Poppins', sans-serif;
+            color:rgb(10, 255, 10);
+            
+        }
+        .container{
+            border-radius: 2px;
+            border: 2px solid greenyellow;
+            width: 35%;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            margin-top: 5rem;
+        }
+        input{
+            border: 2px solid green;
+            color: rgb(10, 255, 10);
+            width: 250px;
+            height: 35px;
+            margin-bottom: 9px;
+            padding-left: 10px;
+            border-radius: 2px;
+        }
+        .items button{
+            background-color: black;
+            border: 2px solid green;
+            color: rgb(13, 255, 0);
+            border-radius: 5px;
+            width: 60px;
+            height: 50px;
+            margin: 2px;
+            font-size: 1.2rem;
+            transition: 0.2s;
+        }
+        .items button:hover{
+            background-color: green;
+            color: white;
+        }
+        @media only screen and (max-width:800px){
+            .container{
+                width: 60%;
+            }
+        }
+        @media only screen and (max-width:500px){
+            .container{
+                width: 85%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Made by Salil Sharma</h1>
+    <section class="container">
+        <input type="text" id="inputText">
+        <div class="items">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>+</button>
+        </div>
+        <div class="items">
+         <button>4</button>
+         <button>5</button>
+         <button>6</button>
+         <button>-</button>
+        </div>
+        <div class="items">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>X</button>
+        </div>
+        <div class="items">
+        <button>=</button>
+        <button>0</button>
+        <button>AC</button>
+        <button>/</button>
+        </div>
+        <div class="items">
+        <button>.</button>
+        </div>
+    </section>
+    <script>
+       let button=document.querySelectorAll('button');
+       let inputText=document.getElementById('inputText');
+       let text="";
+       button.forEach((element)=>{
+        element.addEventListener('click',()=>{
+            if(element.innerText==='='){
+                let ans=eval(text);
+                inputText.value=ans;
+            }
+            else if(element.innerText==='AC'){
+                text="";
+                inputText.value=text;
+            }
+            else if(element.innerText==='X'){
+                text+='*';
+                inputText.value=text; 
+            }
+            else{
+                text+=element.innerText;
+                inputText.value=text;
+            }
+        });
+       });
+    </script>
+</body>
+</html>
