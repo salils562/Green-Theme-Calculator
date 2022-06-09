@@ -84,7 +84,7 @@
         <button>1</button>
         <button>2</button>
         <button>3</button>
-        <button>X</button>
+        <button>x</button>
         </div>
         <div class="items">
         <button>=</button>
@@ -93,7 +93,9 @@
         <button>/</button>
         </div>
         <div class="items">
+        <button>(</button>
         <button>.</button>
+        <button>)</button>
         </div>
     </section>
     <script>
@@ -103,16 +105,14 @@
        button.forEach((element)=>{
         element.addEventListener('click',()=>{
             if(element.innerText==='='){
+                text=text.replaceAll('x','*');
                 let ans=eval(text);
                 inputText.value=ans;
+                text=ans;
             }
             else if(element.innerText==='AC'){
                 text="";
                 inputText.value=text;
-            }
-            else if(element.innerText==='X'){
-                text+='*';
-                inputText.value=text; 
             }
             else{
                 text+=element.innerText;
